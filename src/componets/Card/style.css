@@ -1,0 +1,20 @@
+.basic {
+    text-align: center;
+    font-family:Verdana;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    padding: 5px;
+    background-color: lightsteelblue;
+  }
+
+  .card {
+    text-align: center;
+    /* padding: 50px; */
+    margin: 10px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-color: pink;
+    border-style: solid;
+    border-width: 5px;
+  }
