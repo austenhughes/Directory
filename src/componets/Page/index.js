@@ -13,12 +13,12 @@ class Page extends Component {
   };
 
   componentDidMount() {
-    this.searchDirectory();
+    this.searchDirectory([]);
   }
 
   searchDirectory = (query) => {
     API.search(query)
-      .then(res => this.setState({ results: res.data.results }))
+      .then(res => this.setState({ results: res.data.results}))
       .catch(err => console.log(err));
   };
 
