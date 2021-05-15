@@ -3,16 +3,14 @@ import "./style.css";
 
 function Navbar(props) {
   return (
-    <div id="navBar" class="nav">
-<form>
-      <button class="btn1" onclick="window.location">Sort</button>
-
-      {/* <form> */}
+  <div id="navBar" className="nav">
+  <form>
+      <button className="btn1" onClick="window.location">Sort</button>
+      
       <input type="text" placeholder="Search.." name="search">
       </input>
-      {/* </form> */}
 
-      <button class="btn2" onclick="window.location">Search</button>
+      <button className="btn2" onClick="window.location">Search</button>
   </form>
   </div>
 
