@@ -26,15 +26,16 @@ class Page extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    let byFirstName = [];
+    let byFirstName = this.state.results;
+    let byFirstNameSearch = this.state.search;
 
-    for (let i = 0; i < this.state.results.length; i++) {
-      if (this.state.search === this.state.results.[i].name.first) {
-          byFirstName.push(this.state.results.[i]);
-      }
-    }
+    let filterName = byFirstName.filter(function(a){
+      if(a.name.first === byFirstNameSearch){ return 1; }
+      return 0;
+    })
+  
+    console.log(filterName)
 
-    console.log(byFirstName)
   };
 
   handleButtonPush = event => {
@@ -49,9 +50,10 @@ class Page extends Component {
       return 0;
     })
 
-    for (let i = 0; i < sortByFirstName.length; i++) {
-      console.log(sortByFirstName.[i].name.first)
-    }
+    // for (let i = 0; i < sortByFirstName.length; i++) {
+    //   console.log(sortByFirstName.[i].name.first)
+    // }
+
   };
 
   handleInputChange = event => {
