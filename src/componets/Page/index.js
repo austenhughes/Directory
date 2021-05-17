@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "../Navbar/index";
+import EmployeeTable from "../EmployeeTable/index";
 import SearchForm from "../SearchForm/index";
-import Card from "../Card/index";
+// import Card from "../Card/index";
 import Footer from "../Footer/index";
 import Header from "../Header/index";
 import API from "../../utils/API";
@@ -22,7 +23,7 @@ class Page extends Component {
       .then(res => this.setState({ results: res.data.results}))
       .catch(err => console.log(err));
   };
-
+  
   handleFormSubmit = event => {
     event.preventDefault();
 
@@ -34,10 +35,10 @@ class Page extends Component {
       return 0;
     })
   
-    console.log(filterName)
+    console.log(filterName);
 
   };
-
+  
   handleButtonPush = event => {
     event.preventDefault();
 
@@ -50,9 +51,9 @@ class Page extends Component {
       return 0;
     })
 
-    // for (let i = 0; i < sortByFirstName.length; i++) {
-    //   console.log(sortByFirstName.[i].name.first)
-    // }
+    for (let i = 0; i < sortByFirstName.length; i++) {
+      console.log(sortByFirstName.[i].name.first)
+    }
 
   };
 
@@ -76,7 +77,8 @@ class Page extends Component {
       handleFormSubmit={this.handleFormSubmit}
       handleButtonPush={this.handleButtonPush}
       />
-      <Card results={this.state.results}/>
+      <EmployeeTable results={this.state.results}/>
+      {/* <Card results={this.state.results}/> */}
       <Footer/>
     </div>
   );
