@@ -27,20 +27,37 @@ class Page extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
+    // const value = event.target.value;
+    // const name = event.target.name;
+    // this.setState({
+    //   [name]: value
+    // });
+
     let byFirstName = this.state.results;
     let byFirstNameSearch = this.state.search;
 
-    let filterName = byFirstName.filter(function(a){
-      if(a.name.first === byFirstNameSearch){ return 1; }
-      return 0;
-    })
+    // byFirstName = byFirstName.filter(function(a){
+    //   if(a.name.first === byFirstNameSearch){ return 1; }
+    //   return 0;
+    // })
+
+    let byFirstNameSearched = byFirstName.filter(employee =>
+    employee.name.first === byFirstNameSearch);
+
+    this.setState({ results: byFirstNameSearched})
   
-    console.log(filterName);
+    console.log(byFirstNameSearched);
 
   };
   
   handleButtonPush = event => {
     event.preventDefault();
+
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
 
     let sortByFirstName = this.state.results;
     console.log(sortByFirstName)
@@ -51,9 +68,9 @@ class Page extends Component {
       return 0;
     })
 
-    for (let i = 0; i < sortByFirstName.length; i++) {
-      console.log(sortByFirstName.[i].name.first)
-    }
+    // for (let i = 0; i < sortByFirstName.length; i++) {
+    //   console.log(sortByFirstName.[i].name.first)
+    // }
 
   };
 
