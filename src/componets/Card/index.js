@@ -7,7 +7,7 @@ function Card(props) {
       {props.results.map((result) => (
       <div className="card">
       <div className="basic" key={result.id}>
-      <img alt={result.picture.large} className="img-fluid" src={result.picture.large} />
+      <img alt={result.picture.large} className="img" src={result.picture.large} />
       <div>{result.name.first}{result.name.last}</div>
       <div>{result.location.state}</div>
       <div>{result.location.city}</div>

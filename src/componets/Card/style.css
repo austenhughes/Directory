@@ -10,11 +10,16 @@
 
   .card {
     text-align: center;
-    /* padding: 50px; */
     margin: 10px;
     margin-left: 15%;
     margin-right: 15%;
     border-color: pink;
     border-style: solid;
     border-width: 5px;
+  }
+
+  .img {
+    width: 40%;
+    height: auto;
+    margin-top: 20px;
   }
