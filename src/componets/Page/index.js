@@ -11,7 +11,8 @@ import "./style.css";
 class Page extends Component {
   state = {
     search: "",
-    results: []
+    results: [],
+    // direction: ""
   };
 
   componentDidMount() {
@@ -27,19 +28,8 @@ class Page extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
 
-    // const value = event.target.value;
-    // const name = event.target.name;
-    // this.setState({
-    //   [name]: value
-    // });
-
     let byFirstName = this.state.results;
     let byFirstNameSearch = this.state.search;
-
-    // byFirstName = byFirstName.filter(function(a){
-    //   if(a.name.first === byFirstNameSearch){ return 1; }
-    //   return 0;
-    // })
 
     let byFirstNameSearched = byFirstName.filter(employee =>
     employee.name.first === byFirstNameSearch);
@@ -74,6 +64,30 @@ class Page extends Component {
 
   };
 
+  handleButtonPushLocation = event => {
+    event.preventDefault();
+
+    const value = event.target.value;
+    const name = event.target.name;
+    this.setState({
+      [name]: value
+    });
+
+    let sortByLocation = this.state.results;
+    console.log(sortByLocation)
+
+    sortByLocation.sort(function(a, b){
+      if(a.location.city < b.location.city) { return -1; }
+      if(a.location.city > b.location.city) { return 1; }
+      return 0;
+    })
+
+    // for (let i = 0; i < sortByFirstName.length; i++) {
+    //   console.log(sortByFirstName.[i].name.first)
+    // }
+
+  };
+
   handleInputChange = event => {
     event.preventDefault();
     const value = event.target.value;
@@ -93,6 +107,7 @@ class Page extends Component {
       handleInputChange={this.handleInputChange}
       handleFormSubmit={this.handleFormSubmit}
       handleButtonPush={this.handleButtonPush}
+      handleButtonPushLocation={this.handleButtonPushLocation}
       />
       <EmployeeTable results={this.state.results}/>
       {/* <Card results={this.state.results}/> */}

@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.css";
 
 function SearchForm(props) {
   return (
     <form>
-      <div className="form-group">
+      <div className="searchStuff">
         <input
           onChange={props.handleInputChange}
           value={props.value}
@@ -22,7 +23,12 @@ function SearchForm(props) {
         <button 
         onClick={props.handleButtonPush} 
         className="btn btn-primary">
-        Sort
+        Sort by name
+        </button>
+        <button 
+        onClick={props.handleButtonPushLocation} 
+        className="btn btn-primary">
+        Sort by location 
         </button>
       </div>
     </form>

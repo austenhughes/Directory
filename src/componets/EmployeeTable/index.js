@@ -6,8 +6,7 @@ function EmployeeTable(props) {
     const employee  = props;
 
     return (
-      <table>
-        <caption>employees</caption>
+      <table className="table">
         <thead>
           <tr>
             <th>photo</th>
@@ -21,8 +20,9 @@ function EmployeeTable(props) {
           {employee.results.map(employee => (
             <tr key={employee.uuid}>
               <td><img alt={employee.picture.large} className="img" src={employee.picture.large} /></td>
-              <td>{employee.name.first}{employee.name.last}</td>
-              <td>{employee.location.state}{employee.location.city}</td>
+              <td>{employee.name.first} {employee.name.last}</td>
+              <td>{employee.location.state} <br/>
+              {employee.location.city}</td>
               <td>{employee.email}</td>
               <td>{employee.phone}</td>
             </tr>
